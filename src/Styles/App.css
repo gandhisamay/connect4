@@ -135,15 +135,16 @@ body {
   min-height: 100vh;
 }
 
-.startGame h1 {
-  font-weight: 600;
+.startGameScreen h1 {
   font-size: 3rem;
-  margin-bottom: 2rem;
+  font-weight: 600;
+  transform: translateY(-2rem);
 }
 
-.playerNames{
-    border: 2.5px solid black;
-    padding: 2rem;
+.startGame {
+  border: 2.5px solid black;
+  padding: 2rem;
+  padding-top: 1rem;
 }
 
 .userInput label {
@@ -152,12 +153,28 @@ body {
   font-size: 2rem;
 }
 
+.button button {
+  border: none;
+  margin-top: 1.5rem;
+  width: 8rem;
+  height: 2rem;
+  font-family: "Georama";
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.button button:hover{
+  transform: translateY(-0.25rem);
+  transition: transform 200ms ease-in-out;
+}
+
 .userInput input {
   width: 16rem;
   height: 2rem;
   border-radius: 1rem;
   font-size: 1rem;
   text-align: center;
+  border: 2px solid black;
 }
 
 .userInput input:focus {
