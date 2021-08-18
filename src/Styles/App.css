@@ -127,6 +127,9 @@ table {
 
 body {
   font-family: "Georama";
+}
+
+.startGameScreen{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -184,4 +187,34 @@ body {
 
 .userInput input:focus {
   outline: none;
+}
+
+.gameScreen{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  min-height: 100vh;
+  gap: 2rem;
+}
+
+.game{
+  display: flex;
+  width: 42rem;
+  height : 100vh;
+  background-color: aqua;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.showPlayerName h1{
+  margin-left: 2rem;
+  font-size: 1.8rem;
+}
+
+.circle{
+  background-color: blueviolet;
+  border-radius: 50%;
+  height: 6rem;
+  width: 6rem;
 }
