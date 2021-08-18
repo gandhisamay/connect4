@@ -9,7 +9,7 @@ const gameReducer = (Game = [
     [null, null, null, null, null, null, null]
 ], action)=>{
     let copyGame = [...Game];
-    if(action.type === 'CHANCE'){
+    if(action.type === 'CHANCE_PLAYED'){
         copyGame[action.payload.row][action.payload.column] = action.payload.color;
         Game = copyGame;
         return Game;
@@ -17,15 +17,17 @@ const gameReducer = (Game = [
     return Game;
 }
 
-const playerNamesReducer = (players = [],action) => {
+const playerNamesReducer = (state,action) => {
     if(action.type === 'START_GAME'){
-        players = [...players, action.payload.player1, action.payload.player2];
-        return players;
+        return  state.players =  [
+                action.payload.player1,
+                action.payload.player2,
+            ]
     }
-    return players;
+    return [];
 }
 
 export default combineReducers({
-    game : gameReducer,
-    players : playerNamesReducer,
+    game: gameReducer,
+    players: playerNamesReducer,
 });

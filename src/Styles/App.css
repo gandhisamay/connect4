@@ -163,9 +163,14 @@ body {
   font-weight: 500;
 }
 
-.button button:hover{
-  transform: translateY(-0.25rem);
+.button button:hover {
+  transform: scale(1.05);
   transition: transform 200ms ease-in-out;
+}
+
+.button button a {
+  text-decoration: none;
+  color: black;
 }
 
 .userInput input {
