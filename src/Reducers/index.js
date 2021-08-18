@@ -9,8 +9,8 @@ const gameReducer = (Game = [
     [null, null, null, null, null, null, null]
 ], action)=>{
     let copyGame = [...Game];
-    if(action.type === 'CHANCE_PLAYED'){
-        copyGame[action.payload.row][action.payload.column] = action.payload.color;
+    if(action.type === 'PLAY_CHANCE'){
+        copyGame[action.payload.row][action.payload.column] = action.payload.turn;
         Game = copyGame;
         return Game;
     }

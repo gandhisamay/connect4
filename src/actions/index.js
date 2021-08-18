@@ -11,13 +11,13 @@ export const startGame = (player1, player2) => {
     }
 }
 
-export const playChance = (row, column, color) => {
+export const playChance = (row, column, turn) => {
     return {
-        type : 'CHANCE_PLAYED',
+        type : 'PLAY_CHANCE',
         payload: {
             row,
             column,
-            color
+            turn
         }
     }
 }

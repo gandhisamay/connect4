@@ -1,13 +1,18 @@
 import React from 'react';
 import {connect } from 'react-redux';
 import '../Styles/App.css'
-// import Circle from './Circle';
+import Block from './Block';
 
 class GameScreen extends React.Component{
 
-    
+    makeGrid = ()=>{
+        let list = this.props.game.map((e, index1)=> e.map((w, index2)=> <Block key={`${index1}-${index2}`}/>));
+        return list;
+    }
+
 
     render(){
+
         console.log("props",this.props)
         return (
         <div className="gameScreen">
@@ -17,6 +22,7 @@ class GameScreen extends React.Component{
                 <h1>Ansh</h1>
             </div>
             <div className="game">
+                {this.makeGrid()}
             </div>
         </div>
         );

@@ -189,32 +189,106 @@ body {
   outline: none;
 }
 
-.gameScreen{
+.showPlayerName{
   display: flex;
-  width: 100%;
-  align-items: center;
-  min-height: 100vh;
-  gap: 2rem;
-}
-
-.game{
-  display: flex;
-  width: 42rem;
-  height : 100vh;
-  background-color: aqua;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: flex-start;
+  gap: 3rem;
 }
 
 .showPlayerName h1{
-  margin-left: 2rem;
   font-size: 1.8rem;
 }
 
-.circle{
-  background-color: blueviolet;
-  border-radius: 50%;
+.gameScreen{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: skyblue;
+}
+
+.game{
+  height: 36rem;
+  max-width: 42rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.block{
   height: 6rem;
   width: 6rem;
+  background-color: teal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  box-sizing: border-box;
+}
+
+.space{
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: white;
+}
+
+
+@media(max-width: 675px){
+  .game{
+    height: 30rem;
+    width: 35rem;
+  }
+  .block{
+    height: 5rem;
+    width: 5rem;
+  }
+  .space{
+    height: 3rem;
+    width: 3rem;
+  }
+}
+
+@media(max-width: 570px){
+  .game{
+    height: 24rem;
+    width: 28rem;
+  }
+  .block{
+    height: 4rem;
+    width: 4rem;
+  }
+  .space{
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}
+
+@media(max-width: 460px){
+  .game{
+    height: 18rem;
+    width: 21rem;
+  }
+  .block{
+    height: 3rem;
+    width: 3rem;
+  }
+  .space{
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+
+@media(max-width: 350px){
+  .game{
+    height: 12rem;
+    width: 14rem;
+  }
+  .block{
+    height: 2rem;
+    width: 2rem;
+  }
+  .space{
+    height: 1.25rem;
+    width: 1.25rem;
+  }
 }
