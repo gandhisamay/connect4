@@ -200,11 +200,12 @@ body {
 
 .gameScreen{
   display: flex;
-  justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
   height: 100vh;
   background-color: skyblue;
+  justify-content: start;
+  gap: 4rem;
 }
 
 .game{
@@ -231,6 +232,15 @@ body {
   border-radius: 50%;
   background-color: white;
 }
+
+.green{
+  background-color: green;
+}
+
+.red{
+  background-color: red;
+}
+
 
 
 @media(max-width: 675px){

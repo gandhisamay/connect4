@@ -6,14 +6,14 @@ import Block from './Block';
 class GameScreen extends React.Component{
 
     makeGrid = ()=>{
-        let list = this.props.game.map((e, index1)=> e.map((w, index2)=> <Block key={`${index1}-${index2}`}/>));
+        let list = this.props.game.map((e, index1)=> e.map((w, index2)=> <Block key={`${index1}-${index2}`} id={`${index1}-${index2}` }
+        //   colorClass= {this.props.game[index1][index2] !== null? this.props.game[index1][index2] === 1? 'green' : 'red' : ''}
+        row={index1} column={index2}
+        />));
         return list;
     }
 
-
     render(){
-
-        console.log("props",this.props)
         return (
         <div className="gameScreen">
             <div className="showPlayerName">

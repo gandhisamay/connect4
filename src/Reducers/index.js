@@ -10,10 +10,21 @@ const gameReducer = (Game = [
 ], action)=>{
     let copyGame = [...Game];
     if(action.type === 'PLAY_CHANCE'){
-        copyGame[action.payload.row][action.payload.column] = action.payload.turn;
+        if(copyGame[0][action.payload.column] === null){
+            for(let i = 5 ; i >= action.payload.row; i--){
+                if(copyGame[i][action.payload.column] === null){
+                    // console.log("turn",action.payload.turn);
+                    copyGame[i][action.payload.column] = action.payload.turn;
+                    break;
+                }
+            }
+        }else{
+            console.log('The column is filled completely!')
+        }
         Game = copyGame;
         return Game;
     }
+    console.log("After reducer", Game);
     return Game;
 }
 
