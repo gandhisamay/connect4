@@ -208,7 +208,7 @@ body {
   gap: 4rem;
 }
 
-.game{
+.gameBoard{
   height: 36rem;
   max-width: 42rem;
   display: flex;
@@ -224,6 +224,10 @@ body {
   align-items: center;
   border: 1px solid white;
   box-sizing: border-box;
+}
+
+.game{
+  display: flex;
 }
 
 .space{
@@ -244,7 +248,7 @@ body {
 
 
 @media(max-width: 675px){
-  .game{
+  .gameBoard{
     height: 30rem;
     width: 35rem;
   }
@@ -259,7 +263,7 @@ body {
 }
 
 @media(max-width: 570px){
-  .game{
+  .gameBoard{
     height: 24rem;
     width: 28rem;
   }
@@ -274,7 +278,7 @@ body {
 }
 
 @media(max-width: 460px){
-  .game{
+  .gameBoard{
     height: 18rem;
     width: 21rem;
   }
@@ -289,7 +293,7 @@ body {
 }
 
 @media(max-width: 350px){
-  .game{
+  .gameBoard{
     height: 12rem;
     width: 14rem;
   }

@@ -10,6 +10,7 @@ class GameScreen extends React.Component{
         <div className="gameScreen">
             <div className="showPlayerName">
                 <h1>Samay</h1>
+                <h1>vs</h1>
                 <h1>Ansh</h1>
             </div>
             <Game />
