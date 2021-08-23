@@ -245,7 +245,10 @@ body {
   background-color: red;
 }
 
-
+/* .winnerName{
+  width: 10rem;
+  padding: 10rem;
+} */
 
 @media(max-width: 675px){
   .gameBoard{
