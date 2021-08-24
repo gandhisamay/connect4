@@ -14,28 +14,46 @@ const gameReducer = (Game = [
         Game = copyGame;
         return Game;
     }
+    if(action.type === 'NEW_GAME'){
+        copyGame = [
+            [null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null]
+        ];
+        Game = copyGame; 
+        return Game;
+    }
     return Game;
 }
 
-const playerNamesReducer = (state,action) => {
+const playerNamesReducer = (state = [],action) => {
     if(action.type === 'START_GAME'){
-        return  state.players =  [
+        state =  [
                 action.payload.player1,
                 action.payload.player2,
-            ]
+        ]
     }
-    return [];
+   
+    if(action.type === 'NEW_GAME'){
+        
+    }
+    return state;
 }
 
-const gameWinnerReducer = (state, action) =>{
+const gameWinnerReducer = (state = '', action) => {
     if(action.type === 'DECLARE_WINNER'){
         state = action.payload.gameWinner;  
-        return state;
     }
-    return '';
+    if(action.type === 'NEW_GAME'){
+        state = '';
+    }
+    return state;
 }
 
-const checkWinnerReducer = (state, action) =>{
+const checkWinnerReducer = (state, action) => {
     if(action.type === 'CHECK_WINNER'){
         state = action.payload.isThereWinner;
         return state;
@@ -43,7 +61,7 @@ const checkWinnerReducer = (state, action) =>{
     return false;
 }
 
-const whoseChanceReducer = (state, action) =>{
+const whoseChanceReducer = (state, action) => {
     if(action.type === 'WHOSE_CHANCE'){
         state = action.payload.chance;
         return state;

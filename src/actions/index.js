@@ -1,11 +1,9 @@
 export const startGame = (player1, player2) => {
-    console.log(player1);
-    console.log(player2);
     return  {
         type: 'START_GAME',
         payload:{
             player1,
-            player2
+            player2,
         }
     }
 }
@@ -46,4 +44,10 @@ export const whoseChance = (chance) => {
             chance
         }
     }
+}
+
+export const newGame = () => {
+    return {
+        type : 'NEW_GAME'
+    };
 }

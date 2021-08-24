@@ -3,6 +3,7 @@ import StartGame from "./StartGameScreen";
 import "../Styles/App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import GameScreen from "./GameScreen";
+import Result from "./Result";
 
 const App = () => {
     return (
@@ -14,6 +15,9 @@ const App = () => {
                     </Route>
                     <Route path="/game">
                         <GameScreen />
+                    </Route>
+                    <Route path="/result">
+                        <Result />
                     </Route>
                 </Switch>
             </div>

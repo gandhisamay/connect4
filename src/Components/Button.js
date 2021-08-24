@@ -1,11 +1,12 @@
-import React from 'react'; 
+import React from 'react';
+import { Link } from 'react-router-dom';
 import '../Styles/App.css';
 
-const Button = ({message})=>{
+const Button = ({ message, onClick, link }) => {
     return (
-     <div className="button">
-         <button type="submit">{message}</button>
-     </div>
+        <div className="button">
+            <Link to={link}><button type="submit" onClick={onClick}>{message}</button></Link>
+        </div>
     );
 }
 

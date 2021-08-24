@@ -1,19 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link} from 'react-router-dom';
-import { playChance,  declareWinner, checkForWinner, whoseChance} from '../actions';
-import Button from './Button';
+import { playChance, declareWinner, checkForWinner, whoseChance } from '../actions';
 
 class Game extends React.Component {
 
-    setWinnerName = (value, players)=>{
-        if(value === 1){
-            // this.props.declareWinner(players[0]);
-            this.props.declareWinner('Samay');
-        }else{
-            // this.props.declareWinner(players[1]);
-            this.props.declareWinner('Ansh');
-            
+    setWinnerName = (value, players) => {
+        if (value === 1) {
+            this.props.declareWinner(players[0]);
+        } else {
+            this.props.declareWinner(players[1]);
         }
     }
 
@@ -39,10 +34,10 @@ class Game extends React.Component {
                 }
             }
         }
-        for(let i = 0; i <= 2; i++){
-            for(let j = 0; j <= 3; j++){
+        for (let i = 0; i <= 2; i++) {
+            for (let j = 0; j <= 3; j++) {
                 if (game[i][j] !== null && game[i + 1][j + 1] !== null && game[i + 2][j + 2] !== null && game[i + 3][j + 3] !== null) {
-                    if(game[i][j] === game[i + 1][j + 1] && game[i + 1][j + 1] === game[i + 2][j + 2] && game[i + 2][j + 2] === game[i + 3][j + 3]){
+                    if (game[i][j] === game[i + 1][j + 1] && game[i + 1][j + 1] === game[i + 2][j + 2] && game[i + 2][j + 2] === game[i + 3][j + 3]) {
                         this.setWinnerName(game[i][j], players);
                         return true;
                     }
@@ -50,10 +45,10 @@ class Game extends React.Component {
             }
         }
 
-        for(let i = 0; i <= 2; i++){
-            for(let j = 6; j >= 3; j--){
+        for (let i = 0; i <= 2; i++) {
+            for (let j = 6; j >= 3; j--) {
                 if (game[i][j] !== null && game[i + 1][j - 1] !== null && game[i + 2][j - 2] !== null && game[i + 3][j - 3] !== null) {
-                    if(game[i][j] === game[i + 1][j - 1] && game[i + 1][j - 1] === game[i + 2][j - 2] && game[i + 2][j - 2] === game[i + 3][j - 3]){
+                    if (game[i][j] === game[i + 1][j - 1] && game[i + 1][j - 1] === game[i + 2][j - 2] && game[i + 2][j - 2] === game[i + 3][j - 3]) {
                         this.setWinnerName(game[i][j], players);
                         return true;
                     }
@@ -65,18 +60,20 @@ class Game extends React.Component {
     }
 
     whereActuallyPlayed = (e) => {
-        let { game , chance } = this.props.completeState;
+        let { game, chance, checkWinner } = this.props.completeState;
         let { id } = e.target;
-        let { checkForWinner } = this.props; 
+        let { checkForWinner } = this.props;
         if (game[0][id[2]] === null) {
             for (let i = 5; i >= id[0]; i--) {
                 if (game[i][id[2]] === null) {
-                    this.props.playChance(i, id[2], chance);
-                    this.passChance();
-                    if(this.checkWinner()){
-                        checkForWinner(true);
+                    if (!checkWinner) {
+                        this.props.playChance(i, id[2], chance);
+                        this.passChance();
+                        if (this.checkWinner()) {
+                            checkForWinner(true);
+                        }
+                        return true;
                     }
-                    return true;
                 }
             }
         } else {
@@ -85,8 +82,8 @@ class Game extends React.Component {
     }
 
     passChance = () => {
-        let {whoseChance} = this.props;
-        let{chance} = this.props.completeState;
+        let { whoseChance } = this.props;
+        let { chance } = this.props.completeState;
         if (chance === 1) {
             whoseChance(2);
         } else {
@@ -109,36 +106,12 @@ class Game extends React.Component {
         })
     }
 
-    winnerDetails = ()=>{
-        let {isThereWinner, winner} = this.props.completeState;
-        if(isThereWinner){
-            return (
-                <div>
-                    <div className="winnerName">
-                    <h1>Winner</h1>
-                    <h1>{winner}</h1>
-                    </div>
-                    <div className="newGame">
-                        <Link to="/result"><Button message="New Game" /></Link>
-                    </div>
-                </div>
-                );                  
-        }else{
-            return(
-                <div></div>
-            )
-        }
-    }
-
     render() {
         return (
             (
                 <div className="game">
                     <div className="gameBoard">
                         {this.createGame()}
-                    </div>
-                    <div>
-                        {this.winnerDetails()}
                     </div>
                 </div>
             )
@@ -147,7 +120,7 @@ class Game extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return { completeState: state };
 }
+
 export default connect(mapStateToProps, { playChance, declareWinner, checkForWinner, whoseChance })(Game);
